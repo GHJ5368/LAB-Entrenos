@@ -9,5 +9,15 @@ def lee_entrenos(fichero):
     with open(fichero,encoding="utf-8") as f:
         lector=csv.reader(f)
         for tipo, fechahora, ubicacion, duracion, calorias, distancia, frecuencia, compartido in lector:
-            tipo = int
+            tipo = str(tipo)
+            fechahora = datetime(fechahora)
+            ubicacion =str(ubicacion)
+            duracion =int(duracion)
+            calorias =int(calorias)
+            distancia = float(distancia)
+            frecuencia = int(frecuencia)
+            compartido = bool(compartido)
+            entreno=Entreno(tipo, fechahora, ubicacion, duracion, calorias, distancia, frecuencia, compartido)
+            entrenos.append(entreno)
+    return entrenos
 
